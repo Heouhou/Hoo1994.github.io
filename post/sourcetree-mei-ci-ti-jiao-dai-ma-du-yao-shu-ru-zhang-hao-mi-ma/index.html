@@ -1,9 +1,9 @@
 <html>
   <head>
-  <meta charset="utf-8" />
+    <meta charset="utf-8" />
 <meta name="description" content="" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Hoooo</title>
+<title>sourceTree 每次提交代码都要输入账号密码 | Hoooo</title>
 <link rel="shortcut icon" href="https://h843882065.github.io//favicon.ico?v=1556067279203">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 <link rel="stylesheet" href="https://h843882065.github.io//styles/main.css">
@@ -68,13 +68,55 @@
   </div>
 </div>
 
+      
+        <div class="post-detail">
+          <article class="post">
+            <h2 class="post-title">
+              sourceTree 每次提交代码都要输入账号密码
+            </h2>
+            <div class="post-info">
+              <time class="post-time">
+                · 2019-04-24 ·
+              </time>
+              
+                <a href="https://h843882065.github.io//tag/tBUJeh054" class="post-tags">
+                  # git
+                </a>
+              
+            </div>
+            
+            <div class="post-content">
+              <h3 id="方法一">方法一:</h3>
+<p>使用ssh 方式做免密处理</p>
+<!-- more -->
+<p>如果必须使用http 的方式</p>
+<h3 id="方法二在git目录中有个config目录在路径前配置下用户名和密码即可如下所示">方法二:在.git目录中有个config目录，在路径前配置下用户名和密码即可，如下所示：</h3>
+<pre><code>[core]
+    repositoryformatversion = 0
+    filemode = false
+    bare = false
+    logallrefupdates = true
+    symlinks = false
+    ignorecase = true
+[remote &quot;origin&quot;]
+    url = http://账号:'密码'@192.168.10.7:8090/test/Django.git
+    fetch = +refs/heads/*:refs/remotes/origin/*
+[branch &quot;master&quot;]
+    remote = origin
+    merge = refs/heads/master
 
-        <div class="tags-container">
-          
-            <a class="tag" href="https://h843882065.github.io//tag/tBUJeh054">git</a>
-          
+</code></pre>
+<h3 id="方法三设置对所有项目有效">方法三:设置对所有项目有效</h3>
+<p>git config --global credential.helper osxkeychain  #第一次需要输入密码，以后都不需要了</p>
+
+            </div>
+          </article>
         </div>
+    
+        
 
+        
+    
         <div class="site-footer">
   Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a>
 </div>
