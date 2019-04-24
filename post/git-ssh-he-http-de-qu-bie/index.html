@@ -3,7 +3,7 @@
     <meta charset="utf-8" />
 <meta name="description" content="" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>关于 | Hoooo</title>
+<title>git SSH 和 HTTP 的区别 | Hoooo</title>
 <link rel="shortcut icon" href="https://h843882065.github.io//favicon.ico?v=1556068470792">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 <link rel="stylesheet" href="https://h843882065.github.io//styles/main.css">
@@ -72,31 +72,40 @@
         <div class="post-detail">
           <article class="post">
             <h2 class="post-title">
-              关于
+              git SSH 和 HTTP 的区别
             </h2>
             <div class="post-info">
               <time class="post-time">
-                · 2019-01-25 ·
+                · 2019-04-24 ·
               </time>
+              
+                <a href="https://h843882065.github.io//tag/tBUJeh054" class="post-tags">
+                  # git
+                </a>
               
             </div>
             
             <div class="post-content">
-              <h2 id="关于我自己">关于我自己</h2>
-<ol>
-<li>我是一位南京的程序员,这里记录着我的填坑之路.</li>
-<li>我喜欢运动,喜欢篮球,马刺是我喜爱的球队,小石匠的故事也将会是我的故事</li>
-</ol>
-<!-- more -->
-<h2 id="关于这篇博客">关于这篇博客</h2>
-<ol>
-<li>我一直希望有一个自己的博客来记录自己的成长,直到遇到了<a href="https://github.com/getgridea/gridea">Gridea</a> .希望在接下来的日子里,能让你们和我一起见证我的成长</li>
-</ol>
+              <p>最近项目迁移到git上去,在提交代码时遇到了要每次输入账号密码的情况,查看资料时了解到了 http 和ssh 的问题,特此记录.
+百度了一下,大部分的回答如下:</p>
+<h3 id="http">HTTP</h3>
+<p>使用 http url 克隆对初学者来说会比较方便，复制 http url 然后到命令行里面直接用 git clone 命令克隆到本地就好了，在执行 clone 命令之后需要输入你的 GitLab 的帐号和密码。使用 git Bash 每次都需要输入帐号和密码，不过在使用 PhpStorm 时，PhpStorm 会记住你的用户名和密码，只需第一次使用时输入就好。</p>
+<h3 id="ssh">SSH</h3>
+<p>使用 SSH url 克隆却需要在克隆之前先配置和添加好 SSH key ，因此，如果你想要使用 SSH url 克隆的话，你必须是这个项目的拥有者。否则你是无法添加 SSH key 的，另外 ssh 默认是每次 fetch 和 push 代码都不需要输入账号和密码。</p>
 
             </div>
           </article>
         </div>
     
+        
+          <div class="next-post">
+            <div class="next">下一篇</div>
+            <a href="https://h843882065.github.io//post/sourcetree-mei-ci-ti-jiao-dai-ma-du-yao-shu-ru-zhang-hao-mi-ma">
+              <h3 class="post-title">
+                sourceTree 每次提交代码都要输入账号密码
+              </h3>
+            </a>
+          </div>  
         
 
         
