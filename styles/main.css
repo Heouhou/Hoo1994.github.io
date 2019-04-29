@@ -1628,13 +1628,6 @@ a {
   margin: 4px 8px;
 }
 
-      .sidebar {
-        width: 340px;
-      }
-      .main-container {
-        margin-left: 340px;
-      }
-    
       .sidebar .top-container .site-nav {
         color: #74c0fc;
       }
