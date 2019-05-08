@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" >
 
-<title>文章归档 | Hoooo</title>
+<title>ActiveMQ 入门 | Hoooo</title>
 <meta name="description" content="填坑之路.">
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -90,60 +90,69 @@
 
       <div class="main-container">
         <div class="content-container" data-aos="fade-up">
-          
+          <div class="post-detail">
+            <h2 class="post-title">ActiveMQ 入门</h2>
+            <div class="post-date">2019-05-08</div>
+            
+              <div class="feature-container" style="background-image: url('https://h843882065.github.io//post-images/activemq-ru-men.jpeg')">
+              </div>
+            
+            <div class="post-content">
+              <h2 id="介绍">介绍</h2>
+<p>MQ是消息中间件，是一种在分布式系统中应用程序借以传递消息的媒介，常用的有ActiveMQ，RabbitMQ，kafka。ActiveMQ是Apache下的开源项目，完全支持JMS1.1和J2EE1.4规范的JMS Provider实现。</p>
+<h4 id="特点">特点：</h4>
+<ol>
+<li>支持多种语言编写客户端</li>
+<li>对spring的支持，很容易和spring整合</li>
+<li>支持多种传输协议：TCP,SSL,NIO,UDP等</li>
+<li>支持AJAX</li>
+</ol>
+<h4 id="消息形式">消息形式：</h4>
+<ol>
+<li>点对点（queue）</li>
+<li>一对多（topic）</li>
+</ol>
+<h2 id="安装">安装</h2>
+<blockquote>
+<p><a href="https://blog.csdn.net/ytangdigl/article/details/77740100">参考链接</a></p>
+</blockquote>
+<ol>
+<li>
+<p>下载apache-activemq-5.13.1-bin.tar.gz </br>
+下载地址：http://download.csdn.net/download/u014223912/9464747</p>
+</li>
+<li>
+<p>下载后解压</p>
+</li>
+<li>
+<p>进入到/apache-activemq-5.13.1/bin/macosx目录</p>
+</li>
+<li>
+<p>启动ActiveMQ</p>
+</li>
+</ol>
+<pre><code> ./activemq start  
+</code></pre>
+<ol start="5">
+<li>在浏览器中 http://127.0.0.1:8161/admin/   默认用户名密码都为admin</li>
+</ol>
 
-          <h2 class="archives-title">文章归档</h2>
-          <div class="archives-container">
+            </div>
             
-              <h2 class="year" data-aos="fade-in" data-aos-delay="500">2019</h2>
-              
-                
-                  <article class="post">
-                    <a href="https://h843882065.github.io//post/activemq-ru-men">
-                      <h2 class="post-title">
-                        ActiveMQ 入门
-                      </h2>
-                    </a>
-                  </article>
-                
-              
-                
-                  <article class="post">
-                    <a href="https://h843882065.github.io//post/mac-an-zhuang-mysql">
-                      <h2 class="post-title">
-                        Mac 安装 Mysql
-                      </h2>
-                    </a>
-                  </article>
-                
-              
-                
-                  <article class="post">
-                    <a href="https://h843882065.github.io//post/git-ssh-he-http-de-qu-bie">
-                      <h2 class="post-title">
-                        git SSH 和 HTTP 的区别
-                      </h2>
-                    </a>
-                  </article>
-                
-              
-                
-                  <article class="post">
-                    <a href="https://h843882065.github.io//post/sourcetree-mei-ci-ti-jiao-dai-ma-du-yao-shu-ru-zhang-hao-mi-ma">
-                      <h2 class="post-title">
-                        sourceTree 每次提交代码都要输入账号密码
-                      </h2>
-                    </a>
-                  </article>
-                
-              
             
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://h843882065.github.io//post/mac-an-zhuang-mysql">
+                  <h3 class="post-title">
+                    Mac 安装 Mysql
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+
           </div>
-
-          <div class="pagination-container">
-  
-  
-</div>
 
         </div>
       </div>
