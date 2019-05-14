@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" >
 
-<title>标签列表 | Hoooo</title>
+<title>SpringBoot  @Value 注解注入static 字段 | Hoooo</title>
 <meta name="description" content="填坑之路.">
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -90,20 +90,79 @@
 
       <div class="main-container">
         <div class="content-container" data-aos="fade-up">
-          <h2 class="tag-list-title">标签列表</h2>
-          <div class="tags-container">
+          <div class="post-detail">
+            <h2 class="post-title">SpringBoot  @Value 注解注入static 字段</h2>
+            <div class="post-date">2019-05-14</div>
             
-              <a class="tag" href="https://h843882065.github.io//tag/aKWL93hcL">springboot</a>
+              <div class="feature-container" style="background-image: url('https://h843882065.github.io//post-images/springboot-value-zhu-jie-zhu-ru-static-zi-duan.jpeg')">
+              </div>
             
-              <a class="tag" href="https://h843882065.github.io//tag/4zvStjO8L">java</a>
+            <div class="post-content">
+              <h3 id="普通参数使用value-示例">普通参数使用@Value 示例:</h3>
+<pre><code class="language-java">public class Utils {
+    @Value(&quot;${test.host}&quot;)
+    private  String host;
+
+    @Value(&quot;${test.port}&quot;)
+    private  String port;
+
+    ......
+}
+</code></pre>
+<h3 id="但是在注入static字段时直接使用-value-为静态变量赋值是不行的可以使用-set-方法">但是在注入static字段时,直接使用 @Value 为静态变量赋值是不行的，可以使用 set 方法：</h3>
+<pre><code class="language-java">@Component
+public class Utils {
+    private static String host;
+
+    @Value(&quot;${test.host}&quot;)
+    public void setHost(String host) {
+        Utils.host = host;
+    }
+
+    private static String port;
+
+    @Value(&quot;${test.port}&quot;)
+    public void setPort(String port) {
+        Utils.port = port;
+    }
+
+    ......
+}
+
+</code></pre>
+<blockquote>
+<p>注意，需要使用 @Component 注解。</p>
+</blockquote>
+
+            </div>
             
-              <a class="tag" href="https://h843882065.github.io//tag/I-9LJexi8">brew</a>
+              <div class="tag-container">
+                
+                  <a href="https://h843882065.github.io//tag/aKWL93hcL" class="tag">
+                    springboot
+                  </a>
+                
+                  <a href="https://h843882065.github.io//tag/4zvStjO8L" class="tag">
+                    java
+                  </a>
+                
+              </div>
             
-              <a class="tag" href="https://h843882065.github.io//tag/G-BJQfS6u">mysql</a>
             
-              <a class="tag" href="https://h843882065.github.io//tag/tBUJeh054">git</a>
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://h843882065.github.io//post/activemq-ru-men">
+                  <h3 class="post-title">
+                    ActiveMQ 入门
+                  </h3>
+                </a>
+              </div>
             
+
+            
+
           </div>
+
         </div>
       </div>
     </div>
