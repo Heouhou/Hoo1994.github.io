@@ -1,0 +1,707 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>https://Hoo1994.github.io</id>
+    <title>Hoooo</title>
+    <updated>2020-11-03T09:17:18.919Z</updated>
+    <generator>https://github.com/jpmonette/feed</generator>
+    <link rel="alternate" href="https://Hoo1994.github.io"/>
+    <link rel="self" href="https://Hoo1994.github.io/atom.xml"/>
+    <subtitle>填坑之路.</subtitle>
+    <logo>https://Hoo1994.github.io/images/avatar.png</logo>
+    <icon>https://Hoo1994.github.io/favicon.ico</icon>
+    <rights>All rights reserved 2020, Hoooo</rights>
+    <entry>
+        <title type="html"><![CDATA[IDEA 快捷键]]></title>
+        <id>https://Hoo1994.github.io/post/idea-kuai-jie-jian/</id>
+        <link href="https://Hoo1994.github.io/post/idea-kuai-jie-jian/">
+        </link>
+        <updated>2019-07-08T03:36:39.000Z</updated>
+        <content type="html"><![CDATA[<h3 id="control">control</h3>
+<p>control +, 补全代码</p>
+<p>Control + H 显示当前类的层次结构</p>
+<h3 id="command">Command</h3>
+<p>Command + O 查找类文件</p>
+<p>Command + L 在当前文件跳转到某一行的指定处</p>
+<p>Command + E 显示最近打开的 文件记录 列表</p>
+<p>Command + Y 快速打开光标所在方法、类的定义</p>
+<p>Command + P 显示方法的参数信息</p>
+<p>Command + 鼠标放在代码上 显示代码简要信息</p>
+<p>Command + W 关闭活动的编辑器选项卡</p>
+<p>Command + J 插入自定义动态代码模板</p>
+<p>Command + / 注释/取消注释与行注释</p>
+<p>Command + U 前往当前光标所在方法的父类的方法 / 接口定义</p>
+<p>Command + F12 弹出当前文件结构层，可以在弹出的层上直接输入进行筛选（可用于搜索类中的方法）</p>
+<h3 id="commandshift">Command+shift</h3>
+<p>Command + Shift + O 查找所有类型文件、打开文件、打开目录，打开目录需要在输入的内容前面或后面加一个反斜杠/</p>
+<p>Command + Shift + Delete 跳转到最后一个编辑的地方</p>
+<h3 id="option">Option</h3>
+<p>Option + 方向键左 / Option + 方向键右 光标跳转到当前单词 / 中文句的左 / 右侧开头位置</p>
+<h3 id="command-option">Command + Option</h3>
+<p>Command + Option + 方向键左 / Command + Option + 方向键右 退回 / 前进到上一个操作的地方</p>
+<p>Command + Option + O 前往指定的变量 / 方法</p>
+<p>Command + Option + T 包围代码（使用if..else, try..catch, for, synchronized等包围选中的代码）</p>
+<p>Command + Option + J 弹出模板选择窗口，将选定的代码使用动态模板包住</p>
+<p>Command + Option + N 根据接口查看方法</p>
+<p>Command + Option + M 将选中的代码提取为方法</p>
+<p>Command + Option + V 提取变量</p>
+<p>Command + Option + F 提取字段</p>
+<p>Command + Option + C 提取常量</p>
+<p>Command + Option + P 提取参数</p>
+<h3 id="其他">其他</h3>
+<p>Control + Shift + B 跳转到类型声明处</p>
+<p>Control + Option + H 显示调用层次结构</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[IDEA 中定义自己的TODO 并设置快捷键]]></title>
+        <id>https://Hoo1994.github.io/post/idea-todo/</id>
+        <link href="https://Hoo1994.github.io/post/idea-todo/">
+        </link>
+        <updated>2019-06-26T08:14:26.000Z</updated>
+        <content type="html"><![CDATA[<p>当IDEA</p>
+<p>https://blog.csdn.net/cgl125167016/article/details/79028073</p>
+<p>https://blog.csdn.net/qq_38878455/article/details/82933174</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[java8新特性Stream API]]></title>
+        <id>https://Hoo1994.github.io/post/java8-stream-api/</id>
+        <link href="https://Hoo1994.github.io/post/java8-stream-api/">
+        </link>
+        <updated>2019-06-13T02:23:27.000Z</updated>
+        <content type="html"><![CDATA[<p>通过Stream 产生新的流,对原来的数据不会进行操作</p>
+<blockquote>
+<ol>
+<li>Stream 自己不会存储元素</li>
+<li>Stream不会改源对象.相反,他们会返回一个持有结果的新Stream</li>
+<li>Stream 操作是延迟执行的,这意味着他们会等到需要结果的时候才执行.</li>
+</ol>
+</blockquote>
+<p>多个中间操作可以连接起来形成一个流水线,除非流水线上触发终止操作.否则中间操作不会执行任何的处理,<br>
+而在终止操作时一次性全部处理,称为&quot;惰性求值&quot;.</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[linux下常用Redis命令]]></title>
+        <id>https://Hoo1994.github.io/post/linux-redis/</id>
+        <link href="https://Hoo1994.github.io/post/linux-redis/">
+        </link>
+        <updated>2019-06-04T02:20:01.000Z</updated>
+        <content type="html"><![CDATA[<h2 id="1-连接redis">1. 连接redis</h2>
+<p>redis-cli -h host -p port -a password</p>
+<pre><code class="language-Shell">redis-cli -h r-bp1e481.redis.rds.aliyuncs.com  -p 6379 -a password
+</code></pre>
+<p>有时候会有中文乱码。<br>
+要在 redis-cli 后面加上 --raw</p>
+<pre><code>redis-cli --raw
+</code></pre>
+<p>就可以避免中文乱码了</p>
+<h2 id="2-退出">2. 退出</h2>
+<pre><code class="language-Shell">QUIT
+</code></pre>
+<h2 id="3删除所有数据">3.删除所有数据</h2>
+<pre><code class="language-Shell">flushDB
+</code></pre>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[linux下常用FTP命令]]></title>
+        <id>https://Hoo1994.github.io/post/linux-ftp/</id>
+        <link href="https://Hoo1994.github.io/post/linux-ftp/">
+        </link>
+        <updated>2019-06-04T02:11:47.000Z</updated>
+        <content type="html"><![CDATA[<h2 id="1连接ftp">1.连接Ftp</h2>
+<p>ftp 地址 端口</p>
+<pre><code class="language-Shell">ftp 222.190.111.146 19001
+</code></pre>
+<p>然后输入账号<br>
+输入密码</p>
+<h2 id="2-退出">2. 退出</h2>
+<pre><code class="language-Shell">bye
+</code></pre>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[java8新特性  Lambda]]></title>
+        <id>https://Hoo1994.github.io/post/java8-lambda/</id>
+        <link href="https://Hoo1994.github.io/post/java8-lambda/">
+        </link>
+        <updated>2019-05-23T02:41:39.000Z</updated>
+        <summary type="html"><![CDATA[<p>Lambda 的使用</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>Lambda 的使用</p>
+<!-- more -->
+<h3 id="lambda-表达式的示例">Lambda 表达式的示例:</h3>
+<pre><code class="language-java">package com.example.demo.lambda;
+
+import com.example.demo.domain.Employee;
+import com.example.demo.service.Impl.FilterEmployeesByAge;
+import com.example.demo.service.Impl.FilterEmployeesBySalary;
+import com.example.demo.service.MyPredicate;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Comparator;
+import java.util.List;
+import java.util.TreeSet;
+import org.junit.Test;
+
+/**
+ * @author houqingxin
+ * @Description:
+ * @date 2019-05-23 10:46
+ */
+public class TestController {
+
+
+  //原来的匿名内部类
+  @Test
+  public void test1() {
+    Comparator&lt;Integer&gt; comparator = new Comparator&lt;Integer&gt;() {
+      @Override
+      public int compare(Integer o1, Integer o2) {
+        return Integer.compare(o2, o1);
+      }
+    };
+    TreeSet&lt;Integer&gt; integers = new TreeSet&lt;&gt;(comparator);
+    integers.add(1);
+    integers.add(3);
+    integers.add(2);
+    System.out.println(integers);
+
+  }
+
+  //Lambda
+  @Test
+  public void test2() {
+    Comparator&lt;Integer&gt; comparator = (x, y) -&gt; Integer.compare(y, x);
+    TreeSet&lt;Integer&gt; integers = new TreeSet&lt;&gt;(comparator);
+    integers.add(1);
+    integers.add(3);
+    integers.add(2);
+    System.out.println(integers);
+  }
+
+  //需求: 获取年龄大于35的员工信息
+  List&lt;Employee&gt; employees = Arrays.asList(
+      new Employee(&quot;张三&quot;, 18, 1999),
+      new Employee(&quot;李四&quot;, 28, 2999),
+      new Employee(&quot;王五&quot;, 38, 3999),
+      new Employee(&quot;赵六&quot;, 48, 4999)
+  );
+
+  public List&lt;Employee&gt; filterEmployeesByAge(List&lt;Employee&gt; employees) {
+    List&lt;Employee&gt; resultEmployees = new ArrayList&lt;&gt;();
+    for (Employee employee : employees) {
+      if (employee.getAge() &gt; 35) {
+        resultEmployees.add(employee);
+      }
+    }
+    return resultEmployees;
+  }
+
+  @Test
+  public void test3() {
+    List&lt;Employee&gt; employee = filterEmployeesByAge(employees);
+    System.out.println(employee);
+  }
+
+  //需求: 获取工资大于3000的员工信息
+  public List&lt;Employee&gt; filterEmployeesBySalary(List&lt;Employee&gt; employees) {
+    List&lt;Employee&gt; resultEmployees = new ArrayList&lt;&gt;();
+    for (Employee employee : employees) {
+      if (employee.getSalary() &gt; 3000) {
+        resultEmployees.add(employee);
+      }
+    }
+    return resultEmployees;
+  }
+
+  @Test
+  public void test4() {
+    List&lt;Employee&gt; employee = filterEmployeesBySalary(employees);
+    System.out.println(employee);
+  }
+
+  //优化方式一 : 策略设计模式
+
+  public List&lt;Employee&gt; filterEmployees(List&lt;Employee&gt; employees,
+      MyPredicate&lt;Employee&gt; myPredicate) {
+    List&lt;Employee&gt; resultEmployees = new ArrayList&lt;&gt;();
+    for (Employee employee : employees) {
+      if (myPredicate.test(employee)) {
+        resultEmployees.add(employee);
+      }
+    }
+    return resultEmployees;
+  }
+
+  @Test
+  public void test5() {
+    List&lt;Employee&gt; employee = filterEmployees(employees, new FilterEmployeesByAge());
+    System.out.println(employee);
+
+    System.out.println(&quot;------------------------------&quot;);
+
+    List&lt;Employee&gt; employee2 = filterEmployees(employees, new FilterEmployeesBySalary());
+    System.out.println(employee2);
+  }
+
+  //优化方式二: 匿名内部类
+  @Test
+  public void test6() {
+    List&lt;Employee&gt; employees = filterEmployees(this.employees, new MyPredicate&lt;Employee&gt;() {
+          @Override
+          public Boolean test(Employee employee) {
+            return employee.getSalary() &lt; 2000;
+          }
+        }
+    );
+    System.out.println(employees);
+  }
+
+  //优化方式三:匿名内部类
+  @Test
+  public void test7() {
+
+    List&lt;Employee&gt; employees = filterEmployees(this.employees, (x) -&gt; x.getSalary() &lt; 2000);
+    System.out.println(employees);
+  }
+
+  //优化方式四:Stream API
+  @Test
+  public void test8() {
+    employees.stream()
+        .filter((x) -&gt; x.getSalary() &lt; 2000)
+        .forEach(System.out::println);
+  }
+
+}
+
+//实体对象
+package com.example.demo.domain;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+/**
+ * @author houqingxin
+ * @Description:
+ * @date 2019-05-22 14:26
+ */
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+public class Employee {
+
+  private String name;
+  private int age;
+  private int salary;
+
+}
+
+
+//接口
+
+package com.example.demo.service;
+
+/**
+ * @author houqingxin
+ * @Description:
+ * @date 2019-05-23 11:12
+ */
+public interface MyPredicate&lt;T&gt; {
+
+  Boolean test(T t);
+
+}
+
+
+package com.example.demo.service.impl;
+
+import com.example.demo.domain.Employee;
+import com.example.demo.service.MyPredicate;
+
+/**
+ * @author houqingxin
+ * @Description:
+ * @date 2019-05-23 11:21
+ */
+public class FilterEmployeesByAge implements MyPredicate&lt;Employee&gt; {
+
+  @Override
+  public Boolean test(Employee employee) {
+    return employee.getAge() &gt; 35;
+  }
+}
+
+//实现方法
+package com.example.demo.service.impl;
+
+import com.example.demo.domain.Employee;
+import com.example.demo.service.MyPredicate;
+
+/**
+ * @author houqingxin
+ * @Description:
+ * @date 2019-05-23 11:21
+ */
+public class FilterEmployeesByAge implements MyPredicate&lt;Employee&gt; {
+
+  @Override
+  public Boolean test(Employee employee) {
+    return employee.getAge() &gt; 35;
+  }
+}
+
+package com.example.demo.service.impl;
+
+    import com.example.demo.domain.Employee;
+    import com.example.demo.service.MyPredicate;
+
+/**
+ * @author houqingxin
+ * @Description:
+ * @date 2019-05-23 11:37
+ */
+public class FilterEmployeesBySalary implements MyPredicate&lt;Employee&gt; {
+
+  @Override
+  public Boolean test(Employee employee) {
+    return employee.getSalary() &lt; 3500;
+  }
+
+}
+
+
+</code></pre>
+<h3 id="lambda-表达式的基本语法">Lambda 表达式的基本语法</h3>
+<pre><code>java8中引用了一个新的操作符&quot;-&gt;&quot; 该操作符称为箭头操作符 或Lambda操作符
+箭头操作符将Lambda表达式拆分成两部分:
+左侧: Lambda 表达式的参数列表
+右侧: Lambda 表达式中所需执行的功能,即Lambda 体
+</code></pre>
+<h4 id="1-语法格式一-无参无返回值">1. 语法格式一: 无参,无返回值</h4>
+<pre><code>()-&gt;System.out.println(&quot;Hello Lambda&quot;);
+</code></pre>
+<pre><code class="language-java">  @Test
+  public void test1() {
+    Runnable runnable = () -&gt; System.out.println(&quot;Hello Lambda!&quot;);
+    runnable.run();
+  }
+</code></pre>
+<h4 id="2-语法格式二-有一个参数-无返回值-若只有一个参数小括号可省略不写">2. 语法格式二: 有一个参数 ,无返回值 (若只有一个参数,小括号可省略不写)</h4>
+<pre><code>(x)-&gt;System.out.println(x);
+x-&gt;System.out.println(x);
+</code></pre>
+<pre><code class="language-java">    @Test
+    public void test2() {
+        Consumer&lt;String&gt; consumer = x -&gt; System.out.println(x);
+        consumer.accept(&quot;测试&quot;);
+    }
+</code></pre>
+<h4 id="3-语法格式三-有两个以上参数有返回值并且lambda体中有多条语句">3. 语法格式三: 有两个以上参数,有返回值,并且Lambda体中有多条语句</h4>
+<pre><code>Comparator&lt;Integer&gt; comparator = (x, y) -&gt; {
+  System.out.println(&quot;--------&quot;);
+  return Integer.compare(x, y);
+};
+</code></pre>
+<pre><code class="language-java">  @Test
+  public void test3() {
+    Comparator&lt;Integer&gt; comparator = (x, y) -&gt; {
+      System.out.println(&quot;--------&quot;);
+      return Integer.compare(x, y);
+    };
+    int result = comparator.compare(17, 11);
+    System.out.println(result);
+  }
+</code></pre>
+<h4 id="4语法格式四-若lambda-体中只有一条语句return-和大括号都可以不写">4.语法格式四: 若Lambda 体中只有一条语句,return 和大括号都可以不写</h4>
+<pre><code>Comparator&lt;Integer&gt; comparator = (x, y) -&gt;Integer.compare(x, y);
+</code></pre>
+<h4 id="5-语法格式五-lamba-表达式的参数列表的数据类型可以省略不写因为jvm编译器通过上下文推断出数据类型即类型推断">5. 语法格式五:  Lamba 表达式的参数列表的数据类型可以省略不写,因为JVM编译器通过上下文推断出,数据类型,即&quot;类型推断&quot;.</h4>
+<h3 id="java8-内置四大核心函数式接口">Java8 内置四大核心函数式接口</h3>
+<pre><code class="language-java">/**
+  * Java8内置的四大核心函数式接口
+  * &lt;p&gt;
+  * Consumer&lt;T&gt;: 消费型接口
+  * void accept(T t);
+  *
+  * Supplier&lt;T&gt;:供给型接口
+  * T get();
+  *
+  * Function&lt;T, R&gt;: 函数型接口
+  * R apply(T t);
+  *
+  * Predicate&lt;T&gt;: 断言型接口:
+  * boolean test(T t);
+  *
+  *Java8中还提供了其他函数式接口
+*/
+</code></pre>
+<h3 id="方法引用">方法引用:</h3>
+<p>若Lambda 体中的内容有方法已经实现了,我们可以使用&quot;方法引用&quot;<br>
+(可以理解为方法引用是Lambda 表达式的另外一种表现形式)<br>
+主要有三种语法格式:</p>
+<blockquote>
+<p>注意:Lambda 体中调用方法的参数列表和返回值类型,要与函数式接口中抽象方法的函数列表和返回值类型保持一致</p>
+</blockquote>
+<p>若 Lambda 参数列表中的第一参数是实例方法的调用者,而第二个参数是实例方法的参数时,可以使用<br>
+ClassName::method</p>
+<pre><code>对象::实例方法名
+</code></pre>
+<pre><code class="language-java">  @Test
+  public void test4() {
+    PrintStream out = System.out;
+    Consumer&lt;String&gt; consumer = x -&gt; out.println(x);
+    Consumer&lt;String&gt; consumer1 = out::println;
+    consumer.accept(&quot;测试1&quot;);
+    consumer1.accept(&quot;测试2&quot;);
+  }
+</code></pre>
+<pre><code class="language-java">    @Test
+public void test5() {
+  Employee employee = new Employee();
+  employee.setName(&quot;hah&quot;);
+  Supplier&lt;String&gt; stringSupplier = () -&gt; employee.getName();
+  String s = stringSupplier.get();
+  System.out.println(s);
+  Supplier&lt;String&gt; getName = employee::getName;
+  String s1 = getName.get();
+  System.out.println(s1);
+
+}
+</code></pre>
+<pre><code>类::静态方法名
+```java
+</code></pre>
+<p>@Test<br>
+public void test6() {<br>
+Comparator<Integer> comparator = (x, y) -&gt; Integer.compare(x, y);<br>
+Comparator<Integer> comparator1 = Integer::compare;<br>
+}</p>
+<pre><code>
+ 类::实例方法名
+```java
+@Test
+public void test7() {
+  BiPredicate&lt;String, String&gt; biPredicate = (x, y) -&gt; x.equals(y);
+  BiPredicate&lt;String, String&gt; biPredicate1 = String::equals;
+}
+</code></pre>
+<h3 id="构造器引用">构造器引用</h3>
+<p>格式:<br>
+ClassName::new</p>
+<p>注意:<br>
+需要调用的构造器的参数列表要与函数式接口中的抽象方法参数列表保持一致</p>
+<pre><code class="language-java">  @Test
+  public void test8() {
+    Supplier&lt;Employee&gt; stringSupplier = () -&gt; new Employee();
+    Supplier&lt;Employee&gt; stringSupplier2 = Employee::new;
+  }
+
+  @Test
+  public void test9() {
+    Function&lt;Integer, Employee&gt; function = (x) -&gt; new Employee(x);
+    Function&lt;Integer, Employee&gt; function1 = Employee::new;
+  }
+</code></pre>
+<h3 id="数组引用">数组引用</h3>
+<p>Type[]::new</p>
+<pre><code class="language-java"> @Test
+  public void test10() {
+    Function&lt;Integer, String[]&gt; function = (x) -&gt; new String[x];
+    Function&lt;Integer, String[]&gt; function1 = String[]::new;
+  }
+</code></pre>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[SpringBoot三种拦截服务【Filter，Interceptor，Aspect】]]></title>
+        <id>https://Hoo1994.github.io/post/springboot-san-chong-lan-jie-fu-wu-filterinterceptoraspect/</id>
+        <link href="https://Hoo1994.github.io/post/springboot-san-chong-lan-jie-fu-wu-filterinterceptoraspect/">
+        </link>
+        <updated>2019-05-17T05:36:35.000Z</updated>
+        <content type="html"><![CDATA[<p>http://www.voidcn.com/article/p-tqexuvce-brg.html</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[SpringBoot项目搭建 :统一异常处理]]></title>
+        <id>https://Hoo1994.github.io/post/springboot-Exception/</id>
+        <link href="https://Hoo1994.github.io/post/springboot-Exception/">
+        </link>
+        <updated>2019-05-16T08:53:34.000Z</updated>
+        <content type="html"><![CDATA[<h2 id="统一异常处理">统一异常处理</h2>
+<h3 id="返回到errorhtml中">返回到error.html中</h3>
+<p>创建全局异常处理类：通过使用@ControllerAdvice定义统一的异常处理类，而不是在每个Controller中逐个定义。@ExceptionHandler用来定义函数针对的异常类型，最后将Exception对象和请求URL映射到error.html中</p>
+<pre><code class="language-java">@ControllerAdvice
+class GlobalExceptionHandler {
+
+    public static final String DEFAULT_ERROR_VIEW = &quot;error&quot;;
+
+    @ExceptionHandler(value = Exception.class)
+    public ModelAndView defaultErrorHandler(HttpServletRequest req, Exception e) throws Exception {
+        ModelAndView mav = new ModelAndView();
+        mav.addObject(&quot;exception&quot;, e);
+        mav.addObject(&quot;url&quot;, req.getRequestURL());
+        mav.setViewName(DEFAULT_ERROR_VIEW);
+        return mav;
+    }
+
+}
+</code></pre>
+<p>实现error.html页面展示：在templates目录下创建error.html，将请求的URL和Exception对象的message输出。</p>
+<pre><code class="language-xml">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head lang=&quot;en&quot;&gt;
+    &lt;meta charset=&quot;UTF-8&quot; /&gt;
+    &lt;title&gt;统一异常处理&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h1&gt;Error Handler&lt;/h1&gt;
+    &lt;div th:text=&quot;${url}&quot;&gt;&lt;/div&gt;
+    &lt;div th:text=&quot;${exception.message}&quot;&gt;&lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<p>通过实现上述内容之后，我们只需要在Controller中抛出Exception，当然我们可能会有多种不同的Exception。然后在@ControllerAdvice类中，根据抛出的具体Exception类型匹配@ExceptionHandler中配置的异常类型来匹配错误映射和处理。</p>
+<h3 id="返回json格式">返回JSON格式</h3>
+<p>在上述例子中，通过@ControllerAdvice统一定义不同Exception映射到不同错误处理页面。而当我们要实现RESTful API时，返回的错误是JSON格式的数据，而不是HTML页面，这时候我们也能轻松支持。</p>
+<p>本质上，只需在@ExceptionHandler之后加入@ResponseBody，就能让处理函数return的内容转换为JSON格式。</p>
+<p>下面以一个具体示例来实现返回JSON格式的异常处理。</p>
+<p>创建统一的JSON返回对象，code：消息类型，message：消息内容，url：请求的url，data：请求返回的数据</p>
+<pre><code class="language-java">@Data
+public class ErrorInfo&lt;T&gt; {
+
+    public static final Integer OK = 0;
+    public static final Integer ERROR = 100;
+
+    private Integer code;
+    private String message;
+    private String url;
+    private T data;
+}
+
+//创建一个自定义异常，用来实验捕获该异常，并返回json
+public class MyException extends Exception {
+
+    public MyException(String message) {
+        super(message);
+    }
+    
+}
+//Controller中增加json映射，抛出MyException异常
+@Controller
+public class HelloController {
+
+    @RequestMapping(&quot;/json&quot;)
+    public String json() throws MyException {
+        throw new MyException(&quot;发生错误2&quot;);
+    }
+
+}
+//为MyException异常创建对应的处理
+@ControllerAdvice
+public class GlobalExceptionHandler {
+
+    @ExceptionHandler(value = MyException.class)
+    @ResponseBody
+    public ErrorInfo&lt;String&gt; jsonErrorHandler(HttpServletRequest req, MyException e) throws Exception {
+        ErrorInfo&lt;String&gt; r = new ErrorInfo&lt;&gt;();
+        r.setMessage(e.getMessage());
+        r.setCode(ErrorInfo.ERROR);
+        r.setData(&quot;Some Data&quot;);
+        r.setUrl(req.getRequestURL().toString());
+        return r;
+    }
+
+}
+</code></pre>
+<p>启动应用，访问：http://localhost:8080/json，可以得到如下返回内容：</p>
+<pre><code class="language-json">{
+    code: 100，
+    data: &quot;Some Data&quot;，
+    message: &quot;发生错误2&quot;，
+    url: &quot;http://localhost:8080/json&quot;
+}
+</code></pre>
+<p>至此，已完成在Spring Boot中创建统一的异常处理，实际实现还是依靠Spring MVC的注解，更多更深入的使用可参考Spring MVC的文档。</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[SpringBoot项目搭建 :使用Swagger2构建强大的RESTful API文档]]></title>
+        <id>https://Hoo1994.github.io/post/springboot-xiang-mu-da-jian-shi-yong-swagger2-gou-jian-qiang-da-de-restful-api-wen-dang/</id>
+        <link href="https://Hoo1994.github.io/post/springboot-xiang-mu-da-jian-shi-yong-swagger2-gou-jian-qiang-da-de-restful-api-wen-dang/">
+        </link>
+        <updated>2019-05-16T05:55:51.000Z</updated>
+        <content type="html"><![CDATA[<h3 id="1-添加swagger2依赖">1. 添加Swagger2依赖</h3>
+<p>在pom.xml中加入Swagger2的依赖</p>
+<pre><code class="language-xml">    &lt;!--swagger--&gt;
+    &lt;dependency&gt;
+        &lt;groupId&gt;io.springfox&lt;/groupId&gt;
+        &lt;artifactId&gt;springfox-swagger2&lt;/artifactId&gt;
+        &lt;version&gt;2.9.2&lt;/version&gt;
+    &lt;/dependency&gt;
+    &lt;dependency&gt;
+        &lt;groupId&gt;io.springfox&lt;/groupId&gt;
+        &lt;artifactId&gt;springfox-swagger-ui&lt;/artifactId&gt;
+        &lt;version&gt;2.9.2&lt;/version&gt;
+    &lt;/dependency&gt;
+</code></pre>
+<h3 id="2-创建swagger2配置类">2. 创建Swagger2配置类</h3>
+<pre><code class="language-java">@Configuration
+@EnableSwagger2
+public class SwaggerConfig {
+
+  @Value(value = &quot;${swagger.enabled}&quot;)
+  Boolean swaggerEnabled;
+
+  @Bean
+  public Docket createRestApi() {
+   /* ParameterBuilder tokenParam = new ParameterBuilder();
+    List&lt;Parameter&gt; params = new ArrayList&lt;&gt;();
+    tokenParam.name(&quot;Authorization&quot;).description(&quot;令牌Token&quot;).modelRef(new ModelRef(&quot;string&quot;))
+        .parameterType(&quot;header&quot;).required(false).build();
+    params.add(tokenParam.build());*/
+
+    return new Docket(DocumentationType.SWAGGER_2)
+        .groupName(&quot;v1.0&quot;)
+        .apiInfo(apiInfo())
+        .enable(swaggerEnabled)
+        .select()
+        .apis(RequestHandlerSelectors.basePackage(&quot;com.example.demo&quot;))
+        .paths(PathSelectors.any())
+        .build()
+        .pathMapping(&quot;&quot;);
+  }
+
+  private ApiInfo apiInfo() {
+    return new ApiInfoBuilder()
+        .title(&quot;SpringBootDemo-API&quot;)
+        .description(&quot;SpringBoot项目搭建&quot;)
+        .contact(new Contact(&quot;hou&quot;, &quot;www.buhaoji.top&quot;, &quot;843882065@qq.com&quot;))
+        .version(&quot;1.0.0&quot;)
+        .build();
+  }
+
+}
+</code></pre>
+<p>如上代码所示，通过@Configuration注解，让Spring来加载该类配置。再通过@EnableSwagger2注解来启用Swagger2。</br><br>
+再通过createRestApi函数创建Docket的Bean之后，apiInfo()用来创建该Api的基本信息（这些基本信息会展现在文档页面中）。select()函数返回一个ApiSelectorBuilder实例用来控制哪些接口暴露给Swagger来展现，本例采用指定扫描的包路径来定义，Swagger会扫描该包下所有Controller定义的API，并产生文档内容（除了被@ApiIgnore指定的请求）。</p>
+<h3 id="3-添加文档内容">3. 添加文档内容</h3>
+<p>在完成了上述配置后，其实已经可以生产文档内容，但是这样的文档主要针对请求本身，而描述主要来源于函数等命名产生，对用户并不友好，我们通常需要自己增加一些说明来丰富文档内容。如下所示，我们通过@ApiOperation注解来给API增加说明、通过@ApiImplicitParams、@ApiImplicitParam注解来给参数增加说明。</p>
+<p>//TODO</p>
+<h3 id="4swagger-相关注解">4.swagger 相关注解</h3>
+<h3 id="5swagger-分组">5.swagger 分组</h3>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Spring之RequestBody的使用姿势小结]]></title>
+        <id>https://Hoo1994.github.io/post/spring-zhi-requestbody-de-shi-yong-zi-shi-xiao-jie/</id>
+        <link href="https://Hoo1994.github.io/post/spring-zhi-requestbody-de-shi-yong-zi-shi-xiao-jie/">
+        </link>
+        <updated>2019-05-16T02:30:25.000Z</updated>
+        <content type="html"><![CDATA[<p>https://juejin.im/post/5b5efff0e51d45198469acea#comment</p>
+]]></content>
+    </entry>
+</feed>

@@ -8,7 +8,7 @@
 <meta name="keywords" content="Gridea静态个人博客">
 <meta name="description" content="填坑之路.">
 <meta name="theme-color" content="#000">
-<title>Hoooo</title>
+<title>SpringMVC之请求参数的获取方式 | Hoooo</title>
 <link rel="shortcut icon" href="/favicon.ico?v=1604395031525">
 <link rel="stylesheet" href="/media/css/pisces.css">
 <link rel="stylesheet" href="/media/fonts/font-awesome.css">
@@ -38,7 +38,8 @@
 
 
 
-  <meta name="description" content="填坑之路.">
+  <meta name="description" content="SpringMVC之请求参数的获取方式" />
+  <meta name="keywords" content="" />
 </head>
 
 <body>
@@ -87,7 +88,7 @@
             
               
             
-            <li class="nav-item nav-item-active">
+            <li class="nav-item ">
               
               
                 <a href="/archives/" target="_self">
@@ -171,10 +172,26 @@
   <div class="main-continer">
     
     <div
-      class="section-layout  pisces">
+      class="section-layout pisces ">
       <div class="section-layout-wrapper">
-        <div id="sidebarMeta" class="sidebar">
-    
+        
+
+<div class="sidebar">
+  
+    <div class="sidebar-box box-shadow-wrapper bg-color right-motion" id="sidebar">
+      
+        <div class="post-list-sidebar">
+          <div class="sidebar-title">
+            <span id="tocSideBar" class="sidebar-title-item sidebar-title-active language" data-lan="index">文章目录</span>
+            <span id="metaSideBar" class="sidebar-title-item language" data-lan="preview">站点概览</span>
+          </div>
+        </div>
+      
+      <div class="sidebar-body pisces" id="sidebar_body">
+        
+          
+            <div class="post-side-meta" id="post_side_meta">
+              
 <div class="sidebar-wrapper box-shadow-wrapper bg-color">
   <div class="sidebar-item">
     <img class="site-author-image right-motion" src="/images/avatar.png"/>
@@ -221,214 +238,707 @@
   </div>
 
 </div>
+            </div>
+            <div class="post-toc sidebar-body-active" id="post_toc" style="opacity: 1;">
+              <div class="toc-box right-motion">
+  <div class="toc-wrapper auto-number auto"
+    id="toc_wrapper">
+    <ul class="markdownIt-TOC">
+<li>
+<ul>
+<li><a href="#springmvc%E4%B9%8B%E8%AF%B7%E6%B1%82%E5%8F%82%E6%95%B0%E7%9A%84%E8%8E%B7%E5%8F%96%E6%96%B9%E5%BC%8F">SpringMVC之请求参数的获取方式</a>
+<ul>
+<li><a href="#i-get%E8%AF%B7%E6%B1%82%E5%8F%82%E6%95%B0%E8%8E%B7%E5%8F%96">I. GET请求参数获取</a>
+<ul>
+<li><a href="#1-%E9%80%9A%E8%BF%87-httpservletrequest%E8%8E%B7%E5%8F%96%E5%8F%82%E6%95%B0">1. 通过 HttpServletRequest获取参数</a></li>
+<li><a href="#2-%E7%9B%B4%E6%8E%A5%E6%96%B9%E6%B3%95%E5%8F%82%E6%95%B0%E8%8E%B7%E5%8F%96">2. 直接方法参数获取</a></li>
+<li><a href="#3-requestparam%E6%B3%A8%E8%A7%A3%E6%96%B9%E5%BC%8F%E8%8E%B7%E5%8F%96%E8%AF%B7%E6%B1%82%E5%8F%82%E6%95%B0">3. RequestParam注解方式获取请求参数</a></li>
+<li><a href="#4-bean%E6%96%B9%E5%BC%8F%E8%8E%B7%E5%8F%96%E5%8F%82%E6%95%B0">4. Bean方式获取参数</a></li>
+<li><a href="#5-modelattribute%E6%B3%A8%E8%A7%A3%E6%96%B9%E5%BC%8F">5. ModelAttribute注解方式</a></li>
+<li><a href="#6-path%E5%8F%82%E6%95%B0">6. Path参数</a></li>
+</ul>
+</li>
+<li><a href="#ii-post%E8%AF%B7%E6%B1%82%E5%8F%82%E6%95%B0%E8%8E%B7%E5%8F%96">II. POST请求参数获取</a>
+<ul>
+<li><a href="#1-httpservletrequest%E6%96%B9%E5%BC%8F%E8%8E%B7%E5%8F%96%E5%8F%82%E6%95%B0">1. HttpServletRequest方式获取参数</a></li>
+<li><a href="#2-%E6%96%B9%E6%B3%95%E5%8F%82%E6%95%B0%E8%8E%B7%E5%8F%96">2. 方法参数获取</a></li>
+<li><a href="#3-requestparam%E6%B3%A8%E8%A7%A3%E6%96%B9%E5%BC%8F">3. RequestParam注解方式</a></li>
+<li><a href="#4-bean%E6%96%B9%E5%BC%8F">4. Bean方式</a></li>
+<li><a href="#5-pathvariable">5. PathVariable</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#iii-%E5%A4%9A%E5%AA%92%E4%BD%93%E4%B8%8A%E4%BC%A0%E5%8F%82%E6%95%B0%E8%8E%B7%E5%8F%96">III. 多媒体上传参数获取</a><br>
+*
+<ul>
+<li><a href="#1-%E5%AE%9E%E4%BE%8B%E6%94%AF%E6%8C%81">1. 实例支持</a></li>
+</ul>
+</li>
+<li><a href="#iv-%E5%B0%8F%E7%BB%93">IV. 小结</a><br>
+*
+<ul>
+<li><a href="#1-%E4%BA%94%E7%A7%8D%E8%8E%B7%E5%8F%96%E5%8F%82%E6%95%B0%E7%9A%84%E5%A7%BF%E5%8A%BF">1. 五种获取参数的姿势</a></li>
+<li><a href="#2-%E4%BC%A0%E6%96%87%E4%BB%B6%E4%BD%BF%E7%94%A8%E5%A7%BF%E5%8A%BF">2. 传文件使用姿势</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  </div>
 </div>
+
 <script>
-  let sidebarMeta = document.querySelector('#sidebarMeta');
-  let scheme = 'pisces';
-  let sidebarWrapper = document.querySelector('.sidebar-wrapper');
-  if (sidebarMeta && (scheme === 'pisces' || scheme === 'gemini')) {
-    document.addEventListener('scroll', function(e) {
-      if (document.scrollingElement.scrollTop > parseInt(sidebarMeta.style.marginTop) + 10) {
-        sidebarWrapper.classList.add('home-sidebar-fixed')
-      } else {
-        sidebarWrapper.classList.remove('home-sidebar-fixed')
+
+  let lastTop = 0, lList = [], hList = [], postBody, lastIndex = -1;
+  let active = 'active-show', activeClass = 'active-current';
+  let tocWrapper = document.querySelector('#toc_wrapper');
+  let tocContent = tocWrapper.children[0];
+  let autoNumber = tocWrapper && tocWrapper.classList.contains('auto-number');
+
+  function addTocNumber(elem, deep) {
+    if (!elem) {
+      return;
+    }
+    let prop = elem.__proto__;
+
+    if (prop === HTMLUListElement.prototype) {
+      for (let i = 0; i < elem.children.length; i++) {
+        addTocNumber(elem.children[i], deep + (i + 1) + '.');
       }
+    } else if (prop === HTMLLIElement.prototype) {
+      // 保存li元素
+      if (elem.children[0] && elem.children[0].__proto__ === HTMLAnchorElement.prototype) {
+        lList.push(elem);
+      }
+      for (let i = 0; i < elem.children.length; i++) {
+        let cur = elem.children[i];
+        if (cur.__proto__ === HTMLAnchorElement.prototype) {
+          if (autoNumber) {
+            cur.text = deep + ' ' + cur.text;
+          }
+        } else if (cur.__proto__ === HTMLUListElement.prototype) {
+          addTocNumber(cur, deep);
+        }
+      }
+    }
+  }
+
+  function removeParentActiveClass() {
+    let parents = tocContent.querySelectorAll('.' + active)
+    parents.forEach(function (elem) {
+      elem.classList.remove(active);
     });
   }
-  </script>
-        <div class="section-box box-shadow-wrapper">
-          <section class="section archives-section bg-color posts-expand">
-            
 
-<div class="bg-color">
-  <div class="archive-timeline-box">
-    <div class="archive-timeline-title">
-      
-        <h2 class="language" data-lan="archives" data-count="12">非常好！目前共计12篇日志，继续努力！</h2>
-      
-    </div>
-    
-      
-      
-        <div class="node-title">
-          <h2 class="tag-year">2019</h2>
-        </div>    
+  function addActiveClass(index) {
+    if (index >= 0 && index < hList.length) {
+      lList[index].classList.add(activeClass);
+    }
+  }
+
+  function removeActiveClass(index) {
+    if (index >= 0 && index < hList.length) {
+      lList[index].classList.remove(activeClass);
+    }
+  }
+
+  function addActiveLiElemment(elem, parent) {
+    if (!elem || elem === parent) {
+      return;
+    } else {
+      if (elem.__proto__ === HTMLLIElement.prototype) {
+        elem.classList.add(active);
+      }
+      addActiveLiElemment(elem.parentElement, parent);
+    }
+  }
+
+  function showToc() {
+    if (tocWrapper) {
+      postBody = document.querySelector('#post_body');
+      for (let i = 0; i < postBody.children.length; i++) {
+        if (postBody.children[i].__proto__ === HTMLHeadingElement.prototype) {
+          hList.push(postBody.children[i]);
+        }
+      }
+      if (tocWrapper.classList.contains('compress')) {
+        tocContent.classList.add('closed');
+      } else if (tocWrapper.classList.contains('no_compress')) {
+        tocContent.classList.add('expanded');
+      } else {
+        if (hList.length > 10) {
+          active = 'active-hidden'
+          tocContent.classList.add('closed');
+        } else {
+          tocContent.classList.add('expanded');
+        }
+      }
+    }
+  }
+
+  (function () {
+    // 处理不是从#一级标题开始目录
+    if (tocContent.children.length === 1 && tocContent.children[0].__proto__ === HTMLLIElement.prototype) {
+      let con = tocContent.children[0].children[0];
+      tocContent.innerHTML = con.innerHTML;
+    }
+    let markdownItTOC = document.querySelector('.markdownIt-TOC');
+    let innerHeight = window.innerHeight;
+    markdownItTOC.style = `max-height: ${innerHeight - 80 > 0 ? innerHeight - 80 : innerHeight}px`
+    addTocNumber(tocContent, '');
+  })();
+
+  document.addEventListener('scroll', function (e) {
+    if (lList.length <= 0) {
+      return;
+    }
+    let scrollTop = document.scrollingElement.scrollTop + 10;
+    let dir;
+
+    if (lastTop - scrollTop > 0) {
+      dir = 'up';
+    } else {
+      dir = 'down';
+    }
+
+    lastTop = scrollTop;
+    if (scrollTop <= 0) {
+      if (lastIndex >= 0 && lastIndex < hList.length) {
+        lList[lastIndex].classList.remove(activeClass);
+      }
+      return;
+    }
+
+    let current = 0, hasFind = false;
+    for (let i = 0; i < hList.length; i++) {
+      if (hList[i].offsetTop > scrollTop) {
+        current = i;
+        hasFind = true;
+        break;
+      }
+    }
+    if (!hasFind && scrollTop > lList[lList.length - 1].offsetTop) {
+      current = hList.length - 1;
+    } else {
+      current--;
+    }
+    if (dir === 'down') {
+      if (current > lastIndex) {
+        addActiveClass(current);
+        removeActiveClass(lastIndex)
+        lastIndex = current;
+        removeParentActiveClass();
+        lList[current] && addActiveLiElemment(lList[current].parentElement, tocContent);
+      }
+    } else {
+      if (current < lastIndex) {
+        addActiveClass(current);
+        removeActiveClass(lastIndex);
+        lastIndex = current;
+        removeParentActiveClass();
+        lList[current] && addActiveLiElemment(lList[current].parentElement, tocContent);
+      }
+    }
+  });
+
+
+  window.addEventListener('load', function () {
+    showToc();
+    document.querySelector('#sidebar').style = 'display: block;';
+    tocWrapper.classList.add('toc-active');
+    setTimeout(function () {
+      if ("createEvent" in document) {
+        let evt = document.createEvent("HTMLEvents");
+        evt.initEvent("scroll", false, true);
+        document.dispatchEvent(evt);
+      }
+      else {
+        document.fireEvent("scroll");
+      }
+    }, 500)
+  })
+
+</script>
+            </div>
+          
         
-      
-      <a href="https://Hoo1994.github.io/post/idea-kuai-jie-jian/">
-        <div class="motion-warpper tag-archive-node">
-          <div class="tag-node">
-            <h1>
-              07-08
-              <small>IDEA 快捷键</small>
-            </h1>
-          </div>  
       </div>
-      </a>
+    </div>
+  
+</div>
+<script>
+  const SIDEBAR_TITLE_ACTIVE = 'sidebar-title-active';
+  const SIDEBAR_BODY_ACTIVE = 'sidebar-body-active';
+  const SLIDE_UP_IN = 'slide-up-in';
+
+  let sidebar = document.querySelector('#sidebar'),
+  tocSideBar = document.querySelector('#tocSideBar'),
+  metaSideBar = document.querySelector('#metaSideBar'),
+  postToc = document.querySelector('#post_toc'),
+  postSiteMeta = document.querySelector('#post_side_meta'),
+  sidebarTitle = document.querySelector('.sidebar-title'),
+  sidebarBody = document.querySelector('#sidebar_body');
+
+  tocSideBar && tocSideBar.addEventListener('click', (e) => {
+    toggleSidebar(e);
+  });
+
+  metaSideBar && metaSideBar.addEventListener('click', (e) => {
+    toggleSidebar(e);
+  });
+
+  function toggleSidebar(e) {
+    let currentTitle = document.querySelector("."+SIDEBAR_TITLE_ACTIVE);
+    if (currentTitle == e.srcElement) {
+      return ;
+    }
+    let current, showElement, hideElement;
+    if (e.srcElement == metaSideBar) {
+      showElement = postSiteMeta;
+      hideElement = postToc;
+    } else if (e.srcElement == tocSideBar){
+      showElement = postToc;
+      hideElement = postSiteMeta;
+    }
+    currentTitle.classList.remove(SIDEBAR_TITLE_ACTIVE);
+    e.srcElement.classList.add(SIDEBAR_TITLE_ACTIVE);
+
+    window.Velocity(hideElement, 'stop');
+    window.Velocity(hideElement, 'transition.slideUpOut', {
+      display: 'none',
+      duration: 200,
+      complete: function () {
+        window.Velocity(showElement, 'transition.slideDownIn', {
+          duration: 200
+        });
+      }
+    })
+    hideElement.classList.remove(SIDEBAR_BODY_ACTIVE);
+    showElement.classList.add(SIDEBAR_BODY_ACTIVE);
+  }
+
+  postToc && postToc.addEventListener('transitionend', function() {
+    this.classList.remove(SLIDE_UP_IN);
+  });
+
+  if (sidebarBody) {
+    if (sidebarBody.classList.contains('pisces') || sidebarBody.classList.contains('gemini')) {
+      let hasFix = false;
+      let scrollEl = document.querySelector('.main-continer');
+      let limitTop = document.querySelector('#nav_ul').children.length * 42 + 162;
+      window.addEventListener('scroll', function(e) {
+        if (document.scrollingElement.scrollTop >= limitTop) {
+          if (!hasFix) {
+            sidebar.classList.add('sidebar-fixed');
+            hasFix = true;
+          }
+        } else {
+          if (hasFix) {
+            sidebar.classList.remove('sidebar-fixed');
+            hasFix = false;
+          }
+        }
+      });
+    }
+  }
+  
+</script>
+        <div class="section-box box-shadow-wrapper">
+          <div class="section bg-color post post-page">
+            <section class="post-header">
+  <h1 class="post-title">
+    <a class="post-title-link" href="https://Hoo1994.github.io/post/springmvc-zhi-qing-qiu-can-shu-de-huo-qu-fang-shi/">
+      SpringMVC之请求参数的获取方式
+    </a>
+  </h1>
+  <div class="post-meta">
     
-      
-      
-      <a href="https://Hoo1994.github.io/post/idea-todo/">
-        <div class="motion-warpper tag-archive-node">
-          <div class="tag-node">
-            <h1>
-              06-26
-              <small>IDEA 中定义自己的TODO 并设置快捷键</small>
-            </h1>
-          </div>  
-      </div>
-      </a>
+    <span class="meta-item pc-show">
+      <i class="fa fa-calendar-o"></i>
+      <span class="language" data-lan="publish">发布于</span>
+      <span class="publish-time" data-t="2019-05-15 17:33:12">2019-05-15</span>
+      <span class="post-meta-divider pc-show">|</span>
+    </span>
     
-      
-      
-      <a href="https://Hoo1994.github.io/post/java8-stream-api/">
-        <div class="motion-warpper tag-archive-node">
-          <div class="tag-node">
-            <h1>
-              06-13
-              <small>java8新特性Stream API</small>
-            </h1>
-          </div>  
-      </div>
-      </a>
-    
-      
-      
-      <a href="https://Hoo1994.github.io/post/linux-redis/">
-        <div class="motion-warpper tag-archive-node">
-          <div class="tag-node">
-            <h1>
-              06-04
-              <small>linux下常用Redis命令</small>
-            </h1>
-          </div>  
-      </div>
-      </a>
-    
-      
-      
-      <a href="https://Hoo1994.github.io/post/linux-ftp/">
-        <div class="motion-warpper tag-archive-node">
-          <div class="tag-node">
-            <h1>
-              06-04
-              <small>linux下常用FTP命令</small>
-            </h1>
-          </div>  
-      </div>
-      </a>
-    
-      
-      
-      <a href="https://Hoo1994.github.io/post/java8-lambda/">
-        <div class="motion-warpper tag-archive-node">
-          <div class="tag-node">
-            <h1>
-              05-23
-              <small>java8新特性  Lambda</small>
-            </h1>
-          </div>  
-      </div>
-      </a>
-    
-      
-      
-      <a href="https://Hoo1994.github.io/post/springboot-san-chong-lan-jie-fu-wu-filterinterceptoraspect/">
-        <div class="motion-warpper tag-archive-node">
-          <div class="tag-node">
-            <h1>
-              05-17
-              <small>SpringBoot三种拦截服务【Filter，Interceptor，Aspect】</small>
-            </h1>
-          </div>  
-      </div>
-      </a>
-    
-      
-      
-      <a href="https://Hoo1994.github.io/post/springboot-Exception/">
-        <div class="motion-warpper tag-archive-node">
-          <div class="tag-node">
-            <h1>
-              05-16
-              <small>SpringBoot项目搭建 :统一异常处理</small>
-            </h1>
-          </div>  
-      </div>
-      </a>
-    
-      
-      
-      <a href="https://Hoo1994.github.io/post/springboot-xiang-mu-da-jian-shi-yong-swagger2-gou-jian-qiang-da-de-restful-api-wen-dang/">
-        <div class="motion-warpper tag-archive-node">
-          <div class="tag-node">
-            <h1>
-              05-16
-              <small>SpringBoot项目搭建 :使用Swagger2构建强大的RESTful API文档</small>
-            </h1>
-          </div>  
-      </div>
-      </a>
-    
-      
-      
-      <a href="https://Hoo1994.github.io/post/spring-zhi-requestbody-de-shi-yong-zi-shi-xiao-jie/">
-        <div class="motion-warpper tag-archive-node">
-          <div class="tag-node">
-            <h1>
-              05-16
-              <small>Spring之RequestBody的使用姿势小结</small>
-            </h1>
-          </div>  
-      </div>
-      </a>
-    
-      
-      
-      <a href="https://Hoo1994.github.io/post/springmvc-zhi-qing-qiu-can-shu-de-huo-qu-fang-shi/">
-        <div class="motion-warpper tag-archive-node">
-          <div class="tag-node">
-            <h1>
-              05-15
-              <small>SpringMVC之请求参数的获取方式</small>
-            </h1>
-          </div>  
-      </div>
-      </a>
-    
-      
-      
-      <a href="https://Hoo1994.github.io/post/todo/">
-        <div class="motion-warpper tag-archive-node">
-          <div class="tag-node">
-            <h1>
-              05-15
-              <small>TODO</small>
-            </h1>
-          </div>  
-      </div>
-      </a>
+    <span class="meta-item">
+      <i class="fa fa-clock-o"></i>
+      <span>12<span class="language" data-lan="minute">分钟</span></span>
+    </span>
+    <span class="meta-item">
+      <span class="post-meta-divider">|</span>
+      <i class="fa fa-file-word-o"></i>
+      <span>2514<span class="pc-show language" data-lan="words">字数</span></span>
+    </span>
     
   </div>
-  
-<div class="page bg-color">
-  <ul class="pagination-ul">
-    
-    
-      
-        <li class="pagination-li pagination-active">
-            <a href="/archives/page/../">
-              1
-            </a>
-        </li>
-      
-    
-    
-  </ul>
-</div>
-</div>
+</section>
+            <div class="post-body next-md-body" id="post_body">
+              <p><a href="https://blog.hhui.top/hexblog/2018/01/04/SpringMVC%E4%B9%8B%E8%AF%B7%E6%B1%82%E5%8F%82%E6%95%B0%E7%9A%84%E8%8E%B7%E5%8F%96%E6%96%B9%E5%BC%8F/#top">原文链接</a></p>
+<h2 id="springmvc之请求参数的获取方式">SpringMVC之请求参数的获取方式</h2>
+<h3 id="i-get请求参数获取">I. GET请求参数获取</h3>
+<p>get请求参数，一般都是直接挂在请求的url上，所以获取这些参数还是比较简单的</p>
+<h4 id="1-通过-httpservletrequest获取参数">1. 通过 HttpServletRequest获取参数</h4>
+<p>这个可以说是最基本最常见的的方式了，  <span style="text-shadow: 5px 5px 5px #00FF00;">javax.servlet.ServletRequest#getParameter</span>来获取对应的参数</p>
+<pre><code class="language-java">@RestController
+@RequestMapping(path = &quot;webs/demo&quot;)
+public class DemoController {
 
-          </section>
+    @RequestMapping(path = &quot;req1&quot;)
+    public String req1(HttpServletRequest request) {
+        String user = request.getParameter(&quot;user&quot;);
+        String password = request.getParameter(&quot;password&quot;);
+        return &quot;req1 user: &quot; + user + &quot; pwd: &quot; + password;
+    }
+}
+</code></pre>
+<pre><code class="language-markdown">根据上面暴露的接口，我们测试的case就很简单了
+http://127.0.0.1:8080/webs/demo/req1?user=小灰灰Blog&amp;password=123456
+## 输出  req1 user: 小灰灰Blog pwd: 123456
+
+http://127.0.0.1:8080/webs/demo/req1?user=小灰灰Blog
+## 输出  req1 user: 小灰灰Blog pwd: null
+</code></pre>
+<p><span style="font: 22px '宋体','Arial Narrow',HELVETICA; color: #33F6FF">说明:</span></p>
+<ul>
+<li>这是一个最基本的获取参数的方式，get，post请求都适用的，通常在filter,intercepter中也是可以通过HttpServletRequest对象来获取请求参数</li>
+<li>除了获取常见的请求参数之外，HttpServletRequest可以获取请求头的完整信息</li>
+<li>在一次请求的生命周期内，可以通过下面的方式获取Request对象(当然也可以获取response对象)</li>
+</ul>
+<pre><code class="language-java">HttpServletRequest httpServletRequest = ((ServletRequestAttributes) 
+    RequestContextHolder.getRequestAttributes()).getRequest();
+</code></pre>
+<h4 id="2-直接方法参数获取">2. 直接方法参数获取</h4>
+<pre><code class="language-java">@RequestMapping(path = &quot;req2&quot;)
+public String req2(String user, String password) {
+    return &quot;req2 user: &quot; + user + &quot; pwd: &quot; + password;
+}
+</code></pre>
+<pre><code class="language-markdown">请求验证
+http://127.0.0.1:8080/webs/demo/req2?user=%E5%B0%8F%E7%81%B0%E7%81%B0Blog&amp;password=123456
+## 输出： req2 user: 小灰灰Blog pwd: 123456
+
+http://127.0.0.1:8080/webs/demo/req2?password=123456
+## 输出： req2 user: null pwd: 123456
+
+http://127.0.0.1:8080/webs/demo/req2?password=123456&amp;User=blog
+## 输出： req2 user: null pwd: 123456
+</code></pre>
+<p><span style="font: 22px '宋体','Arial Narrow',HELVETICA; color: #FF5733">注意:</span></p>
+<ul>
+<li>上面这种使用方式，相当于直接将url参数映射到了Controller方法的参数上了</li>
+<li>方法参数名必须和url参数名完全一致（区分大小写）</li>
+<li>顺序无关</li>
+<li>若参数没传，则默认为null</li>
+</ul>
+<blockquote>
+<p>一个疑问 </br><br>
+上面的demo中Controller的方法参数都是String还好，如果将password改成int，会出现什么情况</br></p>
+</blockquote>
+<pre><code class="language-java">@RequestMapping(path = &quot;req2&quot;)
+public String req2(String user, int password) {
+    return &quot;req2 user: &quot; + user + &quot; pwd: &quot; + password;
+}
+</code></pre>
+<p>实际测试</p>
+<pre><code class="language-markdown"># case1 
+http://127.0.0.1:8080/webs/demo/req2?password=123456&amp;user=blog
+## 输出： req2 user: blog pwd: 123456
+
+
+# case 2
+http://127.0.0.1:8080/webs/demo/req2?password2=123456&amp;user=blog
+## 输出: 报错, Optional int parameter 'password' is present but cannot be translated into a null value due to being declared as a primitive type. Consider declaring it as object wrapper for the corresponding primitive type
+
+
+# case 3
+http://127.0.0.1:8080/webs/demo/req2?password=abc&amp;user=blog
+## 输出：报错, &quot;Failed to convert value of type 'java.lang.String' to required type 'int'; nested exception is java.lang.NumberFormatException: For input string: &quot;abc&quot;&quot;
+
+</code></pre>
+<p><span style="font: 22px '宋体','Arial Narrow',HELVETICA; color: #33F6FF">说明:</span></p>
+<ul>
+<li>如果请求参数与方法参数类型不一致，会抛出转换异常</li>
+<li>如果方法参数为非封装基本类型，则url参数必须存在，否则报错</li>
+</ul>
+<h4 id="3-requestparam注解方式获取请求参数">3. RequestParam注解方式获取请求参数</h4>
+<p>通过@RequestParam注解获取参数的方式和上面的一种比较类似</p>
+<pre><code class="language-java">@RequestMapping(path = &quot;req3&quot;, method = RequestMethod.GET)
+public String req3(@RequestParam(&quot;user&quot;) String username,
+                   @RequestParam(&quot;password&quot;) String pwd) {
+    return &quot;req3 user: &quot; + username + &quot; pwd: &quot; + pwd;
+}
+</code></pre>
+<pre><code class="language-markdown"># case1 
+http://127.0.0.1:8080/webs/demo/req3?password=123456&amp;user=blog
+## 输出: req3 user: blog pwd: 123456
+
+
+# case2
+http://127.0.0.1:8080/webs/demo/req3?password=123456
+## 输出：报错， Required String parameter 'user' is not presen
+</code></pre>
+<p><span style="font: 22px '宋体','Arial Narrow',HELVETICA; color: #33F6FF">说明:</span></p>
+<ul>
+<li>不指定注解的name或value属性时，等同于第二种使用姿势</li>
+<li>注解的name属性或value属性，用实际的参数名来指定</li>
+<li>controller的参数名与url参数名没有强关联（区别第二种方式）</li>
+<li>参数类型需要保证一致（通第二种方式）</li>
+<li>如果url参数可选，请设置require属性为false，如下</li>
+</ul>
+<pre><code class="language-java">@RequestParam(name = &quot;user&quot;,  required = false) String username
+</code></pre>
+<h4 id="4-bean方式获取参数">4. Bean方式获取参数</h4>
+<p>对于请求参数比较复杂的情况下，我比较喜欢这种使用姿势，管理起来方便简单</p>
+<pre><code class="language-java">@Data
+public static class UserDO {
+    String user;
+    String password;
+}
+
+@RequestMapping(path = &quot;req4&quot;, method = RequestMethod.GET)
+public String req4(UserDO userDO) {
+    return &quot;req4 userDO: &quot; + userDO;
+}
+</code></pre>
+<p>测试case</p>
+<pre><code class="language-markdown"># case1
+http://127.0.0.1:8080/webs/demo/req4?password=123456&amp;user=%E5%B0%8F%E7%81%B0%E7%81%B0Blog
+## 输出: req4 userDO: DemoController.UserDO(user=小灰灰Blog, password=123456)
+# case2
+http://127.0.0.1:8080/webs/demo/req4?password=123456
+## 输出: req4 userDO: DemoController.UserDO(user=null, password=123456)
+</code></pre>
+<p><span style="font: 22px '宋体','Arial Narrow',HELVETICA; color: #33F6FF">说明:</span></p>
+<ul>
+<li>定义一个bean，内部属性和请求参数对应</li>
+<li>允许参数不存在的情况，会使用null代替（所以，尽量不要使用非封装基本类型，否则参数不传时，会抛异常）</li>
+<li>bean的属性，可以根据实际情况指定类型</li>
+</ul>
+<h4 id="5-modelattribute注解方式">5. ModelAttribute注解方式</h4>
+<p>@ModelAttribute注解的方法，会优于Controller之前执行，一般更常见于向视图传输数据使用，此处不详细展开，正常来讲，专门的获取参数不太会用这这种方式来玩</p>
+<h4 id="6-path参数">6. Path参数</h4>
+<p>Path参数，专指的是请求路径的参数，如</p>
+<pre><code class="language-markdown">http://127.0.0.1:8080/webs/demo/req4?password=123456
+上面这个url中，password是我们传统意义上的请求参数，其中path参数则是指其中 req4, demo这种path路径中的一环；对此，最常见的一个case就是常见的博客中,如开源中国的一个博客链接
+
+https://my.oschina.net/u/566591/blog/1601400
+566591 : 这个参数主要用来区分用户
+1601400 : 这个参数则主要是表示对应的博文
+一般path参数的获取方式如下
+</code></pre>
+<pre><code class="language-java">@RequestMapping(path = &quot;req6/{user}/info&quot;)
+public String req6(@PathVariable(name = &quot;user&quot;) String user) {
+    return &quot;req6 user: &quot; + user;
+}
+</code></pre>
+<p>测试case</p>
+<pre><code class="language-markdown"># case1 
+http://127.0.0.1:8080/webs/demo/req6/blog/info?user=haha
+## 输出：req6 user: blog
+
+# case2
+http://127.0.0.1:8080/webs/demo/req6/blog?user=haha
+## 输出: 404
+
+# case3
+http://127.0.0.1:8080/webs/demo/req6/info?user=haha
+## 输出: 404
+
+</code></pre>
+<p><span style="font: 22px '宋体','Arial Narrow',HELVETICA; color: #FF5733">注意:</span></p>
+<ul>
+<li>path参数的使用，需要确保参数存在且类型匹配</li>
+<li>path参数和url参数不会相互影响</li>
+</ul>
+<h3 id="ii-post请求参数获取">II. POST请求参数获取</h3>
+<p>POST请求参数，更多的是看提交表单参数是否可以获取到，以及如何获取，主要的手段依然是上面几种方式，下面验证下是否ok</p>
+<h4 id="1-httpservletrequest方式获取参数">1. HttpServletRequest方式获取参数</h4>
+<p>测试case，可以借助curl来实现post请求</p>
+<pre><code class="language-markdown"># case1 
+curl -d &quot;user=小灰灰Blog&amp;password=123456&quot; &quot;http://127.0.0.1:8080/webs/demo/req1&quot;
+## 输出： req1 user: 小灰灰Blog pwd: 123456
+
+# case2
+curl -d &quot;user=小灰灰Blog&quot; &quot;http://127.0.0.1:8080/webs/demo/req1?password=123456&quot;
+## 输出：req1 user: 小灰灰Blog pwd: 12345
+
+# case3
+curl -d &quot;user=小灰灰Blog&quot; &quot;http://127.0.0.1:8080/webs/demo/req1?user=greyBlog&quot;
+## 输出：req1 user: greyBlog pwd: null
+</code></pre>
+<p>curl也可以换成js请求测试方式</p>
+<pre><code class="language-js">var formData = new FormData();
+formData.append(&quot;user&quot;, &quot;小灰灰Blog&quot;);
+
+$.ajax({
+  url: 'http://127.0.0.1:8080/webs/demo/req1?password=123456',
+  type: 'post',
+  cache: false,
+  data: formData,
+  processData: false,
+  contentType: false
+});
+</code></pre>
+<p><span style="font: 22px '宋体','Arial Narrow',HELVETICA; color: #33F6FF">说明:</span></p>
+<ul>
+<li>对于HttpServletReuqest方式获取参数时，get和post没什么区别</li>
+<li>若url参数和表单参数同名了，测试结果显示使用的是url参数（待确认，当然最好不要这么干）</li>
+</ul>
+<h4 id="2-方法参数获取">2. 方法参数获取</h4>
+<p>几个测试demo如下</p>
+<pre><code class="language-markdown"># case 1
+curl -d &quot;user=小灰灰Blog&amp;password=123456&quot; &quot;http://127.0.0.1:8080/webs/demo/req2&quot;
+## 输出： req2 user: 小灰灰Blog pwd: 123456
+
+# case 2
+curl -d &quot;password=123456&quot; &quot;http://127.0.0.1:8080/webs/demo/req2&quot;
+## 输出：req2 user: null pwd: 123456
+
+# case 3
+curl -d &quot;password=123456&quot; &quot;http://127.0.0.1:8080/webs/demo/req2?user=blog&quot;
+## 输出： req2 user: blog pwd: 123456
+基本上使用姿势和get没什么区别
+</code></pre>
+<h4 id="3-requestparam注解方式">3. RequestParam注解方式</h4>
+<pre><code class="language-yaml"># case 1
+curl -d &quot;password=123456&amp;user=blog&quot; &quot;http://127.0.0.1:8080/webs/demo/req3&quot;
+## 输出： req3 user: blog pwd: 123456
+
+# case 2
+curl -d &quot;password=123456&quot; &quot;http://127.0.0.1:8080/webs/demo/req3?user=blog&quot;
+## 输出： req3 user: blog pwd: 123456
+
+# case 3
+curl -d &quot;password=123456&amp;user=blog&quot; &quot;http://127.0.0.1:8080/webs/demo/req3?password=900&quot;
+## 输出：req3 user: blog pwd: 900,123456
+</code></pre>
+<p><span style="font: 22px '宋体','Arial Narrow',HELVETICA; color: #FF5733">注意:</span></p>
+<ul>
+<li>和前面的两种方式不同的是，当post表单的参数和url参数同名时，会合并成一个字符串</li>
+</ul>
+<h4 id="4-bean方式">4. Bean方式</h4>
+<pre><code class="language-markdown">## case1 
+curl -d &quot;password=123456&amp;user=blog&quot; &quot;http://127.0.0.1:8080/webs/demo/req4?password=900&quot;
+## 输出 req4 userDO: DemoController.UserDO(user=blog, password=900,123456)
+
+## case2
+curl -d &quot;password=123456&amp;user=blog&quot; &quot;http://127.0.0.1:8080/webs/demo/req4&quot;
+## 输出 req4 userDO: DemoController.UserDO(user=blog, password=123456)
+
+## case3
+curl -d &quot;password=123456&quot; &quot;http://127.0.0.1:8080/webs/demo/req4&quot;
+## 输出 req4 userDO: DemoController.UserDO(user=null, password=123456)
+这种方式不区分get,post，所以完全复杂的交互接口，完全可以考虑用bean的方式来定义请求参数
+</code></pre>
+<h4 id="5-pathvariable">5. PathVariable</h4>
+<p>这个没法玩…</p>
+<h2 id="iii-多媒体上传参数获取">III. 多媒体上传参数获取</h2>
+<p>上传文件的支持，对于传统的spring-mvc来说，可能需要一些添加一些相关配置，不在本文的范畴内，下面默认已经配置好</p>
+<h4 id="1-实例支持">1. 实例支持</h4>
+<pre><code class="language-java">@RequestMapping(path = {&quot;wx/upload&quot;, &quot;wx/wx/upload&quot;}, method = {RequestMethod.GET, RequestMethod.POST, RequestMethod.OPTIONS})
+@ResponseBody
+public String upload(HttpServletRequest request) {
+    MultipartFile file = null;
+    if (request instanceof MultipartHttpServletRequest) {
+        file = ((MultipartHttpServletRequest) request).getFile(&quot;image&quot;);
+    }
+
+    if (file == null) {
+        throw new IllegalArgumentException(&quot;图片不能为空!&quot;);
+    }
+    
+    return &quot;success&quot;;
+}
+</code></pre>
+<p>简单来说，主要是利用HttpServletRequest来获取上传的文件</p>
+<p><span style="font: 22px '宋体','Arial Narrow',HELVETICA; color: #FF5733">注意:</span></p>
+<ul>
+<li>如果接口必须要求上传文件，可以直接把参数声明为 MultipartHttpServletRequest， 此时调用方如果不传参数，会被异常拦截（可以通过@ControllerAdvice来拦截全局异常）</li>
+<li>如果可以不上传文件，则可以用上面的这种猥琐姿势，内部进行判断</li>
+<li>((MultipartHttpServletRequest) request).getFile(xxx)来获取指定名的上传文件</li>
+</ul>
+<h2 id="iv-小结">IV. 小结</h2>
+<h4 id="1-五种获取参数的姿势">1. 五种获取参数的姿势</h4>
+<table>
+<thead>
+<tr>
+<th>方式</th>
+<th>注意事项</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>HttpServletRequest获取参数</td>
+<td>最常见通用</td>
+</tr>
+<tr>
+<td>方法参数与请求参数同名</td>
+<td>注意参数名统一，注意类型一致，尽量不用非包装基本类型</td>
+</tr>
+<tr>
+<td>@RequestParam注解</td>
+<td>同上，可注解内指定http参数名</td>
+</tr>
+<tr>
+<td>Bean方式</td>
+<td>定义一个bean，会将同名的http参数赋值进去，推荐</td>
+</tr>
+<tr>
+<td>@PathVariable 注解</td>
+<td>请求url参数</td>
+</tr>
+</tbody>
+</table>
+<h4 id="2-传文件使用姿势">2. 传文件使用姿势</h4>
+<ul>
+<li>使用MultipartHttpServletRequest来获取上传的文件，当然也可以获取基本的请求参数</li>
+</ul>
+
+            </div>
+            
+            
+              <div class="post-footer">
+  <ul class="post-copyright">
+    <li class="post-copyright-author">
+      <strong class="language" data-lan="author">本文作者：</strong>
+      Ho。
+    </li>
+    <li class="post-copyright-link">
+      <strong class="language" data-lan="link">本文链接：</strong>
+      <a href="https://Hoo1994.github.io/post/springmvc-zhi-qing-qiu-can-shu-de-huo-qu-fang-shi/" title="SpringMVC之请求参数的获取方式">https://Hoo1994.github.io/post/springmvc-zhi-qing-qiu-can-shu-de-huo-qu-fang-shi/</a>
+    </li>
+    <li class="post-copyright-license">
+      <strong class="language" data-lan="copyright">版权声明： </strong>
+      本博客所有文章除特别声明外，均采用<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i> BY-NC-SA</a> 许可协议。转载请注明出处！
+    </li>
+  </ul>
+  <div class="tags">
+    
+  </div>
+  <div class="nav">
+    <div class="nav-prev">
+      
+        <i class="fa fa-chevron-left"></i>
+        <a class="nav-pc-next" title="Spring之RequestBody的使用姿势小结" href="https://Hoo1994.github.io/post/spring-zhi-requestbody-de-shi-yong-zi-shi-xiao-jie/">Spring之RequestBody的使用姿势小结</a class="nav-pc-next">
+        <a class="nav-mobile-prev" title="Spring之RequestBody的使用姿势小结" href="https://Hoo1994.github.io/post/spring-zhi-requestbody-de-shi-yong-zi-shi-xiao-jie/">上一篇</a>
+      
+    </div>
+    <div class="nav-next">
+      
+        <a class="nav-pc-next" title="TODO" href="https://Hoo1994.github.io/post/todo/">TODO</a>
+        <a class="nav-mobile-next" title="TODO" href="https://Hoo1994.github.io/post/todo/">下一篇</a>
+        <i class="fa fa-chevron-right"></i>
+      
+    </div>
+  </div>
+</div>
+            
+            
+  
+
+          </div>
         </div>
       </div>
     </div>
@@ -1155,6 +1665,253 @@
   }
 
 </script>
+    <div class="light-box" id="light_box"></div>
+<script>
+  let imgs = document.querySelectorAll('.post-body img');
+  let lightBox = document.querySelector('#light_box');
+  lightBox.addEventListener('mousedown', (e) => {
+    e.preventDefault()
+  })
+  lightBox.addEventListener('mousewheel', (e) => {
+    e.preventDefault()
+  })
+  let width = window.innerWidth * 0.8;
+  lightBox.onclick = () => {
+    let img = lightBox.querySelector('img');
+    lightBox.style = '';
+    img && img.remove();
+  }
+  imgs.forEach(item => {
+    item.onclick = function (e) {
+      let lightImg = document.createElement('img');
+      lightImg.src = this.src;
+      lightBox.style = `height: 100%; opacity: 1; background-color: rgba(0, 0, 0, 0.5);cursor: zoom-out;`;
+      lightImg.style = `width: ${width}px;border-radius: 2px;`;
+      lightImg.onclick = function () {
+        lightBox.style = '';
+        this.remove();
+      }
+      lightBox.append(lightImg);
+    }
+  })
+</script>
+    <div class="reward-mask" style="display: none;">
+  <div class="reward-relative">
+    <span class="close" aria-hidden="true">x</span>
+    <div class="reward-body">
+      <h2>感谢您的支持，我会继续努力的!</h2>
+      <div class="reward-img-box">
+        <div style="position: relative; width: 140px; height: 140px;">
+          
+          
+          
+        </div>
+      </div>
+      <p class="reward-word">扫码打赏，你说多少就多少</p>
+      <p class="reward-tip">打开微信扫一扫，即可进行扫码打赏哦</p>
+    </div>
+    <div class="bottom">
+      
+      
+    </div>
+  </div>
+</div>
+<style>
+  .reward-mask {
+    position: fixed;
+    z-index: 99999;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: #00000054;
+  }
+
+  .reward-relative {
+    position: relative;
+    width: 480px;
+    text-align: center;
+    margin: 0 auto;
+    border-radius: 5px;
+    background-color: #fff;
+    top: 50%;
+    margin-top: -205px;
+  }
+
+  .reward-relative .close {
+    position: absolute;
+    right: 10px;
+    font-weight: normal;
+    font-size: 16px;
+    color: #929292;
+  }
+
+  .reward-body {
+    padding: 40px 20px 20px;
+  }
+
+  .bottom {
+    display: flex;
+  }
+
+  .reward-btn {
+    text-align: center;
+  }
+
+  .reward-btn-text {
+    display: inline-block;
+    cursor: pointer;
+    width: 60px;
+    height: 60px;
+    line-height: 60px;
+    border-radius: 50%;
+    background-color: #ff9734;
+    color: #FFF;
+    margin-top: 20px;
+  }
+
+  .pay-text {
+    margin-top: 10px;
+    padding: 10px;
+    flex: 1;
+    transition: all .2s linear;
+  }
+
+  .pay-text:hover {
+    background-color: #a5a5a536;
+  }
+
+  .reward-body h2 {
+    padding-top: 10px;
+    text-align: center;
+    color: #a3a3a3;
+    font-size: 16px;
+    font-weight: normal;
+    margin: 0 0 20px;
+  }
+
+  .reward-body h2:after,
+  .reward-body h2:before {
+    font-family: Arial, Helvetica, sans-serif;
+    background: 0 0;
+    width: 0;
+    height: 0;
+    font-style: normal;
+    color: #eee;
+    font-size: 80px;
+    position: absolute;
+    top: 20px;
+  }
+
+  .reward-body h2:before {
+    content: '\201c';
+    left: 50px;
+  }
+
+  .reward-body h2:after {
+    content: '\201d';
+    right: 80px;
+  }
+
+  .reward-img-box {
+    display: inline-block;
+    padding: 10px;
+    border: 6px solid #ea5f00;
+    margin: 0 auto;
+    border-radius: 3px;
+    position: relative;
+  }
+
+  .reward-img {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+  }
+
+  @media (max-width: 767px) {
+    .reward-relative {
+      height: 100%;
+      top: 0px;
+      margin-top: 0;
+      width: auto;
+    }
+
+    .reward-relative .bottom {
+      flex-direction: column;
+    }
+
+    .reward-relative .pay-text {
+      width: 80%;
+      margin: 5px auto;
+      border: 1px solid silver;
+      padding: 6px;
+      border-radius: 4px;
+    }
+
+    .reward-body h2:after {
+      right: 40px;
+    }
+
+    .reward-body h2:after,
+    .reward-body h2:before {
+      font-size: 60px;
+    }
+
+    .reward-body h2:before {
+      left: 20px;
+    }
+  }
+</style>
+<script>
+  !function () {
+    var mask = document.querySelector('.reward-mask');
+    let close = document.querySelector('.reward-relative .close');
+    let rewardBtn = document.querySelector('.reward-btn');
+
+    let zfb = document.querySelector('#zfb'),
+      wx = document.querySelector('#wx'),
+      zfbBtn = document.querySelector('#zfbBtn'),
+      wxBtn = document.querySelector('#wxBtn');
+
+    if (zfbBtn && wxBtn) {
+      zfbBtn.addEventListener('click', () => {
+        window.Velocity(zfb, 'transition.slideLeftIn', {
+          duration: 400
+        });
+        window.Velocity(wx, 'transition.slideRightOut', {
+          display: 'none',
+          duration: 400
+        });
+      });
+
+      wxBtn.addEventListener('click', () => {
+        window.Velocity(wx, 'transition.slideRightIn', {
+          duration: 400
+        });
+        window.Velocity(zfb, 'transition.slideLeftOut', {
+          display: 'none',
+          duration: 400
+        });
+      });
+    }
+
+    rewardBtn.addEventListener('click', (e) => {
+      window.Velocity(mask, 'transition.slideDownIn', {
+        duration: 400
+      })
+    });
+
+    close.addEventListener('click', (e) => {
+      e.preventDefault();
+      window.Velocity(mask, 'transition.slideUpOut', {
+        duration: 400
+      })
+    })
+  }()
+</script>
+
   </div>
 </body>
 
@@ -2478,6 +3235,5 @@ public String upload(HttpServletRequest request) {
   // Using config rendering effect at 'element'.
   const cn = new CanvasNest(document.querySelector('.snow-container'), config);
   </script>
-
 
 </html>
